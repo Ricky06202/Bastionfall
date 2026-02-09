@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://tvrlbym8e3yb"]
+
+[ext_resource type="PackedScene" uid="uid://ci1gwg6fymju2" path="res://Escenas/Carta.tscn" id="1_jy3ny"]
+[ext_resource type="Script" uid="uid://8qx4x6ff5xor" path="res://Escenas/spawner.gd" id="2_itpy2"]
+[ext_resource type="PackedScene" uid="uid://b7sptxf6geqfs" path="res://Escenas/death_zone.tscn" id="3_oybtx"]
+
+[node name="Nivel" type="Node2D" unique_id=1169040680]
+
+[node name="Cartas" type="Node2D" parent="." unique_id=1144942448]
+
+[node name="Carta" parent="Cartas" unique_id=13843428 instance=ExtResource("1_jy3ny")]
+position = Vector2(190, 295)
+
+[node name="Carta2" parent="Cartas" unique_id=639965621 instance=ExtResource("1_jy3ny")]
+position = Vector2(301, 295)
+
+[node name="Carta3" parent="Cartas" unique_id=758121112 instance=ExtResource("1_jy3ny")]
+position = Vector2(411, 295)
+
+[node name="Spawner" type="Node2D" parent="." unique_id=970590342]
+position = Vector2(668, -40)
+script = ExtResource("2_itpy2")
+
+[node name="DireccionCastillo" type="Marker2D" parent="Spawner" unique_id=1678771025]
+position = Vector2(-504, 211)
+
+[node name="DeathZone" parent="Spawner/DireccionCastillo" unique_id=1169957471 instance=ExtResource("3_oybtx")]

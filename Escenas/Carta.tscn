@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://ci1gwg6fymju2"]
+
+[ext_resource type="Script" uid="uid://yqcr8olj4yk1" path="res://Escenas/carta.gd" id="1_jopjk"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_b6a6n"]
+size = Vector2(100, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ck7s5"]
+size = Vector2(100, 148.1233)
+
+[node name="Carta" type="Area2D" unique_id=13843428]
+script = ExtResource("1_jopjk")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=21483469]
+mesh = SubResource("QuadMesh_b6a6n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=263402514]
+scale = Vector2(1, 1.0126698)
+shape = SubResource("RectangleShape2D_ck7s5")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

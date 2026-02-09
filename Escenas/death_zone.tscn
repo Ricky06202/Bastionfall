@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://b7sptxf6geqfs"]
+
+[ext_resource type="Script" uid="uid://clx2awt0txx5v" path="res://Escenas/death_zone.gd" id="1_5d07j"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_scllg"]
+radius = 19.026299
+
+[node name="DeathZone" type="Area2D" unique_id=1169957471]
+script = ExtResource("1_5d07j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1922944762]
+shape = SubResource("CircleShape2D_scllg")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
