@@ -6,6 +6,8 @@
 radius = 19.026299
 
 [node name="DeathZone" type="Area2D" unique_id=1169957471]
+collision_layer = 8
+collision_mask = 4
 script = ExtResource("1_5d07j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1922944762]

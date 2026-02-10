@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://y0s4rjx5tdl7"]
+
+[ext_resource type="Script" uid="uid://c2okcib8qw0hp" path="res://Escenas/interfaz.gd" id="1_7ppe8"]
+
+[node name="Interfaz" type="CanvasLayer" unique_id=1362017565]
+script = ExtResource("1_7ppe8")
+
+[node name="Control" type="Control" parent="." unique_id=1300091889]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Grupo Monedas" type="HBoxContainer" parent="Control" unique_id=1351799835]
+layout_mode = 1
+offset_left = 17.0
+offset_top = 11.0
+offset_right = 111.0
+offset_bottom = 51.0
+
+[node name="Texto Monedas" type="Label" parent="Control/Grupo Monedas" unique_id=1385126532]
+layout_mode = 2
+text = "Monedas: "
+
+[node name="Monedas" type="Label" parent="Control/Grupo Monedas" unique_id=1085725497]
+layout_mode = 2
+text = "0"
+
+[node name="Siguiente Oleada" type="Button" parent="Control" unique_id=801564396]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -71.0
+offset_right = -20.0
+offset_bottom = -17.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Siguiente 
+Oleada"
+
+[connection signal="pressed" from="Control/Siguiente Oleada" to="." method="_on_siguiente_oleada_pressed"]

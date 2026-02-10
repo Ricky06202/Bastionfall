@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="TipoDeCarta" format=3 uid="uid://ckmjyntx7d7pq"]
+
+[ext_resource type="Script" uid="uid://bnyw1e2k37pil" path="res://Recursos/definicion/tipo_de_carta.gd" id="1_8jbrl"]
+
+[resource]
+script = ExtResource("1_8jbrl")
+tipo = 2
+metadata/_custom_type_script = "uid://bnyw1e2k37pil"
