@@ -1,10 +1,11 @@
 [gd_resource type="Resource" script_class="TipoDeCarta" format=3 uid="uid://b33k82rh1ley2"]
 
 [ext_resource type="Script" uid="uid://bnyw1e2k37pil" path="res://Recursos/definicion/tipo_de_carta.gd" id="1_7bf21"]
-[ext_resource type="Texture2D" uid="uid://gqgddq4m0bqw" path="res://icon.svg" id="2_66m6i"]
+[ext_resource type="Texture2D" uid="uid://dvxh1m2u6dfcc" path="res://Assets/dinero.png" id="2_66m6i"]
 
 [resource]
 script = ExtResource("1_7bf21")
+nombre = "Bolsa de Monedas"
 sprite = ExtResource("2_66m6i")
 cantidad = 100
 metadata/_custom_type_script = "uid://bnyw1e2k37pil"

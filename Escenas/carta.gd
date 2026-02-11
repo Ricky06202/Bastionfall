@@ -8,9 +8,10 @@ var posicionCorrecta := false
 var seleccionada := false
 
 @onready var posicionInicial := global_position
-@onready var borde: MeshInstance2D = $Borde
+@onready var borde: Sprite2D = $Borde
 @onready var tipo: Label = $Tipo
 @onready var sprite_2d: TextureRect = $Control/Sprite2D
+@onready var carta: MeshInstance2D = $Carta
 
 
 # Called when the node enters the scene tree for the first time.
@@ -25,14 +26,18 @@ func _process(delta: float) -> void:
 		global_position = get_global_mouse_position()
 
 func actualizarEditor():
+	if tipoDeCarta.sprite:
+		sprite_2d.texture = tipoDeCarta.sprite
+		sprite_2d.visible = true
+		carta.visible = false
+		tipo.visible = false
+
 	match tipoDeCarta.tipo:
 		0: tipo.text = "Monedas"
 		1: tipo.text = "Hechizos"
 		2: tipo.text = "Estructuras"
 	
-	if tipoDeCarta.sprite:
-		sprite_2d.texture = tipoDeCarta.sprite
-		sprite_2d.visible = true
+	
 
 func _on_mouse_entered() -> void:
 	scale = Vector2(1.1, 1.1)
@@ -69,6 +74,7 @@ func onCartaSeleccionada(cartaTocada):
 	
 func activar():
 	match tipoDeCarta.tipo:
-		0: Globals.obtenerMonedas.emit(tipoDeCarta.cantidad)
-		1: Globals.obtenerHechizos.emit(tipoDeCarta.daño, tipoDeCarta.sprite)
-		2: Globals.obtenerEstructuras.emit()
+		0: Inventario.obtenerMonedas.emit(tipoDeCarta)
+		1: Inventario.obtenerHechizos.emit(tipoDeCarta)
+		2: Inventario.obtenerEstructuras.emit(tipoDeCarta)
+	queue_free()

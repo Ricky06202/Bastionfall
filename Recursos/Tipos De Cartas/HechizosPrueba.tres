@@ -1,9 +1,11 @@
 [gd_resource type="Resource" script_class="TipoDeCarta" format=3 uid="uid://deq385dunke2y"]
 
 [ext_resource type="Script" uid="uid://bnyw1e2k37pil" path="res://Recursos/definicion/tipo_de_carta.gd" id="1_1id34"]
+[ext_resource type="Texture2D" uid="uid://b2agggy4ge28w" path="res://Assets/hechizo.png" id="2_eptyy"]
 
 [resource]
 script = ExtResource("1_1id34")
+nombre = "Bola de Fuego"
 tipo = 1
-"daño" = 20.5
+sprite = ExtResource("2_eptyy")
 metadata/_custom_type_script = "uid://bnyw1e2k37pil"

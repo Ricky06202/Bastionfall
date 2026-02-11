@@ -1,8 +1,11 @@
 [gd_resource type="Resource" script_class="TipoDeCarta" format=3 uid="uid://ckmjyntx7d7pq"]
 
 [ext_resource type="Script" uid="uid://bnyw1e2k37pil" path="res://Recursos/definicion/tipo_de_carta.gd" id="1_8jbrl"]
+[ext_resource type="Texture2D" uid="uid://tmc84ad73awd" path="res://Assets/estructura.png" id="2_bp3b8"]
 
 [resource]
 script = ExtResource("1_8jbrl")
+nombre = "Torreta"
 tipo = 2
+sprite = ExtResource("2_bp3b8")
 metadata/_custom_type_script = "uid://bnyw1e2k37pil"
