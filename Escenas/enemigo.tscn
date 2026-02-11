@@ -1,17 +1,7 @@
 [gd_scene format=3 uid="uid://bgfsgbdrpstku"]
 
 [ext_resource type="Script" uid="uid://b46gtq6bfgih6" path="res://Escenas/enemigo.gd" id="1_x0nhg"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_x0nhg"]
-radius = 10.0
-height = 20.0
-
-[sub_resource type="Gradient" id="Gradient_mg8ck"]
-offsets = PackedFloat32Array(0.23798077, 0.42548078, 1)
-colors = PackedColorArray(0, 0, 0, 1, 0.9529412, 0, 0, 1, 1, 0, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_x0nhg"]
-gradient = SubResource("Gradient_mg8ck")
+[ext_resource type="Texture2D" uid="uid://dckv1cyj2yw7j" path="res://Assets/enemigo.png" id="2_24lda"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_24lda"]
 
@@ -20,9 +10,10 @@ collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_x0nhg")
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1925555976]
-mesh = SubResource("SphereMesh_x0nhg")
-texture = SubResource("GradientTexture1D_x0nhg")
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=467359112]
+texture = ExtResource("2_24lda")
+flip_h = true
+flip_v = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=669574593]
 shape = SubResource("CircleShape2D_24lda")

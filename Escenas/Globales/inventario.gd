@@ -2,10 +2,10 @@ extends Node
 
 var monedas: int = 0
 var hechizos: Array[TipoDeCarta] = []
-var construcciones: Array[TipoDeCarta] = []
+var estructuras: Array[TipoDeCarta] = []
 
 const MAX_HECHIZOS = 2
-const MAX_CONSTRUCCIONES = 3
+const MAX_ESTRUCTURAS = 3
 
 signal obtenerMonedas(carta)
 signal obtenerHechizos(carta)
@@ -21,8 +21,8 @@ func intentar_agregar_item(recurso: TipoDeCarta) -> bool:
 				hechizos.append(recurso)
 				return true
 		2:
-			if construcciones.size() < MAX_CONSTRUCCIONES:
-				construcciones.append(recurso)
+			if estructuras.size() < MAX_ESTRUCTURAS:
+				estructuras.append(recurso)
 				return true
 	
 	return false # Si llegó aquí, es que estaba lleno o no era un tipo válido

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://y0s4rjx5tdl7"]
 
 [ext_resource type="Script" uid="uid://c2okcib8qw0hp" path="res://Escenas/interfaz.gd" id="1_7ppe8"]
+[ext_resource type="Texture2D" uid="uid://b2agggy4ge28w" path="res://Assets/hechizo.png" id="2_ucux2"]
 
 [node name="Interfaz" type="CanvasLayer" unique_id=1362017565]
 script = ExtResource("1_7ppe8")
@@ -44,5 +45,63 @@ grow_horizontal = 0
 grow_vertical = 0
 text = "Siguiente 
 Oleada"
+
+[node name="Inventario Poderes" type="HBoxContainer" parent="Control" unique_id=440103647]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 22.0
+offset_top = -55.0
+offset_right = 86.0
+offset_bottom = -15.0
+grow_vertical = 0
+
+[node name="Hechizo1" type="TextureButton" parent="Control/Inventario Poderes" unique_id=15548877]
+visible = false
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+texture_normal = ExtResource("2_ucux2")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Hechizo2" type="TextureButton" parent="Control/Inventario Poderes" unique_id=1670997502]
+visible = false
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+texture_normal = ExtResource("2_ucux2")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Inventario Estructuras" type="HBoxContainer" parent="Control" unique_id=1434316883]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 252.0
+offset_right = 22.0
+offset_bottom = 292.0
+
+[node name="Estructura1" type="TextureButton" parent="Control/Inventario Estructuras" unique_id=1256711383]
+visible = false
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+texture_normal = ExtResource("2_ucux2")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Estructura2" type="TextureButton" parent="Control/Inventario Estructuras" unique_id=870966085]
+visible = false
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+texture_normal = ExtResource("2_ucux2")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Estructura3" type="TextureButton" parent="Control/Inventario Estructuras" unique_id=1793406921]
+visible = false
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+texture_normal = ExtResource("2_ucux2")
+ignore_texture_size = true
+stretch_mode = 5
 
 [connection signal="pressed" from="Control/Siguiente Oleada" to="." method="_on_siguiente_oleada_pressed"]
