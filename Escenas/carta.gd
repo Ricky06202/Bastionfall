@@ -1,10 +1,15 @@
 @tool
 extends Area2D
 
-@export var tipoDeCarta : TipoDeCarta
+@export var tipoDeCarta : TipoDeCarta:
+	set(nuevo_recurso):
+		tipoDeCarta = nuevo_recurso
+		# Llamamos a la actualización solo si estamos en el editor
+		if Engine.is_editor_hint():
+			# Usamos call_deferred para esperar a que los nodos estén listos 
+			# si es que acabas de abrir la escena.
+			call_deferred("actualizar_visuales")
 
-var seguirMouse := false
-var posicionCorrecta := false
 var seleccionada := false
 
 @onready var posicionInicial := global_position
@@ -16,27 +21,35 @@ var seleccionada := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Globals.cartaSeleccionada.connect(onCartaSeleccionada)
+	# Actualizamos al iniciar para que cargue lo que tenga asignado
+	actualizar_visuales()
+	if not Engine.is_editor_hint():
+		Globals.cartaSeleccionada.connect(onCartaSeleccionada)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	actualizarEditor() # --> Esto Solo es para actualizar en vivo en el editor
+func actualizar_visuales():
+	# Verificamos que los nodos existan (muy importante en modo @tool)
+	if not is_inside_tree() or not tipoDeCarta: 
+		return
 	
-	if seguirMouse:
-		global_position = get_global_mouse_position()
+	# Aseguramos que los @onready se hayan ejecutado o buscamos los nodos
+	if not sprite_2d: sprite_2d = $Control/Sprite2D
+	if not tipo: tipo = $Tipo
+	if not carta: carta = $Carta
 
-func actualizarEditor():
 	if tipoDeCarta.sprite:
 		sprite_2d.texture = tipoDeCarta.sprite
 		sprite_2d.visible = true
 		carta.visible = false
 		tipo.visible = false
+	else:
+		# Si no hay imagen, que se vean los textos por defecto
+		carta.visible = true
+		tipo.visible = true
 
 	match tipoDeCarta.tipo:
 		0: tipo.text = "Monedas"
 		1: tipo.text = "Hechizos"
 		2: tipo.text = "Estructuras"
-	
 	
 
 func _on_mouse_entered() -> void:

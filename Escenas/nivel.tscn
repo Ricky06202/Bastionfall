@@ -9,7 +9,7 @@
 [node name="Nivel" type="Node2D" unique_id=1169040680]
 
 [node name="Spawner" parent="." unique_id=958487140 instance=ExtResource("2_oybtx")]
-position = Vector2(668, -40)
+position = Vector2(668, 1)
 
 [node name="Cartas" type="Node2D" parent="." unique_id=1144942448]
 

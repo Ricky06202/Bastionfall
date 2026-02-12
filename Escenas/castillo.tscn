@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://p3y1hruov2kw"]
+
+[ext_resource type="Script" uid="uid://bkgltlwmk4u5s" path="res://Escenas/castillo.gd" id="1_s8tyg"]
+
+[node name="Castillo" type="Node2D" unique_id=340461851]
+script = ExtResource("1_s8tyg")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1367322673]
+centered = false
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2136340506]
+custom_minimum_size = Vector2(135, 192)
+offset_right = 130.0
+offset_bottom = 171.0
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect" unique_id=1268319243]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -76.0
+offset_right = 50.0
+offset_bottom = 76.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="ColorRect/CenterContainer" unique_id=1766899195]
+layout_mode = 2
+columns = 2

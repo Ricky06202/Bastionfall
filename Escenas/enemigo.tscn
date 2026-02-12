@@ -5,15 +5,13 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_24lda"]
 
-[node name="Enemigo" type="Area2D" unique_id=1318652751]
+[node name="Enemigo" type="CharacterBody2D" unique_id=2144730576]
 collision_layer = 4
-collision_mask = 0
+collision_mask = 4
 script = ExtResource("1_x0nhg")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=467359112]
 texture = ExtResource("2_24lda")
-flip_h = true
-flip_v = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=669574593]
 shape = SubResource("CircleShape2D_24lda")

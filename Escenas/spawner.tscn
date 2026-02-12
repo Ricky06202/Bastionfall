@@ -7,6 +7,7 @@
 script = ExtResource("1_2cuxq")
 
 [node name="DireccionCastillo" type="Marker2D" parent="." unique_id=375801741]
-position = Vector2(-504, 211)
+position = Vector2(-847, 170)
 
 [node name="DeathZone" parent="DireccionCastillo" unique_id=1169957471 instance=ExtResource("2_xqvlp")]
+position = Vector2(336, 0)

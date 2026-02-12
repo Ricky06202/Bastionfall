@@ -3,9 +3,9 @@ class_name TipoDeCarta
 
 @export var nombre : String
 
-@export var tipo : tipos
+@export var tipo : tiposCartas
 
-enum tipos {
+enum tiposCartas {
 	MONEDAS,
 	HECHIZOS,
 	ESTRUCTURA

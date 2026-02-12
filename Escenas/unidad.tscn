@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dmaou4dohdxoy"]
+
+[ext_resource type="Script" uid="uid://btt04rjfw2sqq" path="res://Escenas/unidad.gd" id="1_idnxp"]
+[ext_resource type="Script" uid="uid://cf60017ojhh2q" path="res://Componentes/Vida.gd" id="1_w64r7"]
+[ext_resource type="Script" path="res://Componentes/BarraVida.gd" id="2_6yxft"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_idnxp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_idnxp"]
+
+[node name="Unidad" type="CharacterBody2D" unique_id=816876385]
+script = ExtResource("1_idnxp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1165846208]
+sprite_frames = SubResource("SpriteFrames_idnxp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1510374430]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1353341777]
+shape = SubResource("CircleShape2D_idnxp")
+
+[node name="Vida" type="Node" parent="." unique_id=1995817986]
+script = ExtResource("1_w64r7")
+metadata/_custom_type_script = "uid://cf60017ojhh2q"
+
+[node name="BarraVida" type="ProgressBar" parent="." unique_id=556828173]
+offset_right = 4.0
+offset_bottom = 27.0
+script = ExtResource("2_6yxft")

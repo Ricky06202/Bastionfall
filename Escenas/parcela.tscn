@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://fvll6qrkg60e"]
+
+[ext_resource type="Script" uid="uid://mmsybp426sg1" path="res://Escenas/parcela.gd" id="1_te2fu"]
+
+[node name="Parcela" type="PanelContainer" unique_id=548738987]
+custom_minimum_size = Vector2(48, 48)
+offset_right = 48.0
+offset_bottom = 48.0
+script = ExtResource("1_te2fu")
