@@ -9,6 +9,7 @@ extends Node2D
 			generar_castillo()
 
 @onready var grid: GridContainer = $ColorRect/CenterContainer/GridContainer
+@onready var punto_reunion: Marker2D = $Marker2D
 @export var parcela_escena: PackedScene = preload("res://Escenas/Parcela.tscn")
 
 # Tu tabla de configuración
@@ -21,6 +22,8 @@ const CONFIG_NIVELES = {
 
 func _ready():
 	generar_castillo()
+	# Registramos este punto automáticamente para que las unidades lo usen
+	Globals.punto_reunion = punto_reunion
 
 func generar_castillo():
 	# En el modo @tool, a veces los @onready no han cargado, así que aseguramos el nodo

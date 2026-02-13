@@ -26,3 +26,8 @@ func intentar_agregar_item(recurso: TipoDeCarta) -> bool:
 				return true
 	
 	return false # Si llegó aquí, es que estaba lleno o no era un tipo válido
+
+func resetearInventario():
+	monedas = 0
+	hechizos = []
+	estructuras = []

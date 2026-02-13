@@ -16,7 +16,9 @@ func construir_estructura():
 	var sprite : Sprite2D= estructura.get_node("Sprite2D")
 	sprite.texture = Globals.construccion.spriteEstructura
 	# Le pasamos el recurso al edificio ANTES de añadirlo
-	#estructura.datos_unidad = recurso_unidad
+	if Globals.construccion.creaUnidades:
+		estructura.tipoDeUnidad = Globals.construccion.tipoDeUnidad
+		estructura.capacidad = Globals.construccion.capacidad
 	
 	# Lo añadimos al Marker2D para que quede perfectamente centrado
 	$Marker2D.add_child(estructura)
@@ -38,7 +40,7 @@ func _on_area_2d_mouse_exited() -> void:
 
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if Input.is_action_pressed("click"):
+	if Input.is_action_pressed("click") and Globals.modoContruccion:
 		estructuraPosicionada = true
 		Globals.estructuraColocada.emit()
-		Globals.avisoModoConstruccion.emit()
+		Globals.avisoModoConstruccion.emit(false)

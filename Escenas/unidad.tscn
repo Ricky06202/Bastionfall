@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://btt04rjfw2sqq" path="res://Escenas/unidad.gd" id="1_idnxp"]
 [ext_resource type="Script" uid="uid://cf60017ojhh2q" path="res://Componentes/Vida.gd" id="1_w64r7"]
-[ext_resource type="Script" path="res://Componentes/BarraVida.gd" id="2_6yxft"]
+[ext_resource type="Script" uid="uid://d2vlltvcavjw7" path="res://Componentes/BarraVida.gd" id="2_6yxft"]
+[ext_resource type="Texture2D" uid="uid://gqgddq4m0bqw" path="res://icon.svg" id="2_pq060"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_idnxp"]
 
@@ -15,6 +16,7 @@ script = ExtResource("1_idnxp")
 sprite_frames = SubResource("SpriteFrames_idnxp")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1510374430]
+texture = ExtResource("2_pq060")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1353341777]
 shape = SubResource("CircleShape2D_idnxp")

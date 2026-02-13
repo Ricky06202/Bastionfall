@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="TipoDeUnidad" format=3 uid="uid://baxo8ecxogeyy"]
+
+[ext_resource type="Script" uid="uid://dof68f4wekgub" path="res://Recursos/definicion/tipo_de_unidad.gd" id="1_tgj08"]
+[ext_resource type="Texture2D" uid="uid://b2m4c27ywsshl" path="res://Assets/soldado.png" id="2_b2m3x"]
+
+[resource]
+script = ExtResource("1_tgj08")
+sprite = ExtResource("2_b2m3x")
+metadata/_custom_type_script = "uid://dof68f4wekgub"

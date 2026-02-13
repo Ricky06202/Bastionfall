@@ -19,6 +19,7 @@ position = Vector2(33, 75)
 
 [node name="Carta" parent="Cartas" unique_id=13843428 instance=ExtResource("1_jy3ny")]
 position = Vector2(190, 295)
+tipoDeCarta = ExtResource("5_2rhd1")
 
 [node name="Carta2" parent="Cartas" unique_id=639965621 instance=ExtResource("1_jy3ny")]
 position = Vector2(301, 295)

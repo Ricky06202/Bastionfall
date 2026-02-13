@@ -15,9 +15,40 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
+var siguienteOleadaActivada := false
+
+func resetGlobals():
+	Globals.modoContruccion = false
+	Globals.avisoModoConstruccion.emit(false)
+	Globals.construccion = null
+	Globals.estructuraColocada.emit()
+	Inventario.resetearInventario()
 
 func _on_siguiente_oleada_pressed() -> void:
+	if siguienteOleadaActivada: 
+		get_tree().reload_current_scene()
+		resetGlobals()
+		return
+	# Limpiamos las unidades supervivientes antes de empezar la nueva oleada
+	get_tree().call_group("unidades", "queue_free")
+	
+	Globals.resetear_contadores_filas()
+	
+	# Contamos cuántas unidades totales habrá por tipo para centrar la formación
+	var total_por_tipo = {0: 0, 1: 0, 2: 0}
+	var estructuras_en_escena = get_tree().get_nodes_in_group("estructuras")
+	for est in estructuras_en_escena:
+		if est.tipoDeUnidad:
+			var idx = est.tipoDeUnidad.tipo
+			total_por_tipo[idx] += est.capacidad
+	
+	Globals.totales_oleada = total_por_tipo
+	
 	Globals.siguienteOleada.emit()
+
+	siguienteOleadaActivada = true
+	$"Control/Siguiente Oleada".text = "Reset"
+
 
 func obtenerMonedas(carta):
 	Inventario.intentar_agregar_item(carta)
@@ -54,27 +85,29 @@ func obtenerEstructuras(carta):
 
 
 func _on_estructura_1_pressed() -> void:
-	Globals.avisoModoConstruccion.emit()
+	Globals.avisoModoConstruccion.emit(true)
+	indiceConstruccion = 0
 	Globals.construccion = Inventario.estructuras.get(0)
 
 
 func _on_estructura_2_pressed() -> void:
-	Globals.avisoModoConstruccion.emit()
+	Globals.avisoModoConstruccion.emit(true)
+	indiceConstruccion = 1
 	Globals.construccion = Inventario.estructuras.get(1)
 
 
 func _on_estructura_3_pressed() -> void:
-	Globals.avisoModoConstruccion.emit()
+	Globals.avisoModoConstruccion.emit(true)
+	indiceConstruccion = 2
 	Globals.construccion = Inventario.estructuras.get(2)
 	
-	
-func avisoModoConstruccion():
-	Globals.modoContruccion = !Globals.modoContruccion
-	$"Control/Modo Construccion".visible = !$"Control/Modo Construccion".visible
+var indiceConstruccion := 0
+
+func avisoModoConstruccion(activo):
+	Globals.modoContruccion = activo
+	$"Control/Modo Construccion".visible = activo
 
 func estructuraColocada():
-	for i in Inventario.estructuras.size():
-		if Inventario.estructuras.get(i) == Globals.construccion:
-			Inventario.estructuras.remove_at(i)
-		estructuras.get(i).visible = false
+	Inventario.estructuras.remove_at(indiceConstruccion)
+	estructuras.get(indiceConstruccion).visible = false
 			

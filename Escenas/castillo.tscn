@@ -30,3 +30,6 @@ grow_vertical = 2
 [node name="GridContainer" type="GridContainer" parent="ColorRect/CenterContainer" unique_id=1766899195]
 layout_mode = 2
 columns = 2
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=2122455284]
+position = Vector2(332, 93)

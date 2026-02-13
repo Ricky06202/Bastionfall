@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bnyw1e2k37pil" path="res://Recursos/definicion/tipo_de_carta.gd" id="1_8jbrl"]
 [ext_resource type="Texture2D" uid="uid://tmc84ad73awd" path="res://Assets/estructura.png" id="2_bp3b8"]
 [ext_resource type="Texture2D" uid="uid://ddddraqgggdmj" path="res://Assets/1st_Shack.png" id="3_15pi7"]
+[ext_resource type="Resource" uid="uid://baxo8ecxogeyy" path="res://Recursos/Tipos De Unidades/unidadPrueba.tres" id="4_rps83"]
 
 [resource]
 script = ExtResource("1_8jbrl")
@@ -10,4 +11,6 @@ nombre = "Torreta"
 tipo = 2
 sprite = ExtResource("2_bp3b8")
 spriteEstructura = ExtResource("3_15pi7")
+creaUnidades = true
+tipoDeUnidad = ExtResource("4_rps83")
 metadata/_custom_type_script = "uid://bnyw1e2k37pil"

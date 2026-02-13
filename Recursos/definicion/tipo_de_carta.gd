@@ -33,14 +33,11 @@ enum tiposHechizos {
 
 @export_category("Estructura")
 @export var spriteEstructura : Texture2D
-@export var tipoUnidad : tiposEstructuras
+@export var creaUnidades : bool = false
+@export var tipoDeUnidad : TipoDeUnidad
+@export var tipoEstructura : tiposEstructuras
 @export var costo : float
 @export var capacidad : int = 4
-
-@export_subgroup("Estadisticas de unidad")
-@export var vida : float
-@export var ataque : float
-@export var velocidad : float
 
 enum tiposEstructuras {
 	MELEE,

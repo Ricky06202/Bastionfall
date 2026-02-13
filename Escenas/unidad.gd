@@ -2,21 +2,16 @@ extends CharacterBody2D
 
 @export var tipoDeUnidad: TipoDeUnidad # Aquí arrastras el archivo .tres
 @onready var sprite = $AnimatedSprite2D
-@onready var vida_comp = $VidaComponent
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
 func _ready():
+	add_to_group("unidades")
 	if tipoDeUnidad:
 		# Le pasamos el paquete de animaciones del recurso al sprite
-		sprite.sprite_frames = tipoDeUnidad.animaciones
-		sprite.play("idle") # Todas las unidades deben tener una anim llamada "idle"
+		#sprite.sprite_frames = tipoDeUnidad.animaciones
+		#sprite.play("idle") # Todas las unidades deben tener una anim llamada "idle"
 		
 		sprite_2d.texture = tipoDeUnidad.sprite
-		
-		# Configuramos la vida desde el recurso
-		if vida_comp:
-			vida_comp.vida_maxima = tipoDeUnidad.vida_maxima
-			vida_comp.vida_actual = tipoDeUnidad.vida_maxima
 
 var objetivo_pos : Vector2
 var desplegando : bool = false
