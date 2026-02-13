@@ -104,4 +104,16 @@ texture_normal = ExtResource("2_ucux2")
 ignore_texture_size = true
 stretch_mode = 5
 
+[node name="Modo Construccion" type="Label" parent="Control" unique_id=452005168]
+visible = false
+layout_mode = 0
+offset_left = 207.0
+offset_top = 12.0
+offset_right = 429.0
+offset_bottom = 35.0
+text = "Modo Construccion Activado"
+
 [connection signal="pressed" from="Control/Siguiente Oleada" to="." method="_on_siguiente_oleada_pressed"]
+[connection signal="pressed" from="Control/Inventario Estructuras/Estructura1" to="." method="_on_estructura_1_pressed"]
+[connection signal="pressed" from="Control/Inventario Estructuras/Estructura2" to="." method="_on_estructura_2_pressed"]
+[connection signal="pressed" from="Control/Inventario Estructuras/Estructura3" to="." method="_on_estructura_3_pressed"]

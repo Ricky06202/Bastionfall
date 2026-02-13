@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://c5ngnq5tgs1j"]
+
+[ext_resource type="Script" uid="uid://dbitajoxs5i13" path="res://Escenas/estructura.gd" id="1_qlet3"]
+
+[node name="Estructura" type="Node2D" unique_id=2052602847]
+script = ExtResource("1_qlet3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=536373123]

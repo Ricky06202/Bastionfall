@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://tvrlbym8e3yb"]
 
 [ext_resource type="PackedScene" uid="uid://ci1gwg6fymju2" path="res://Escenas/Carta.tscn" id="1_jy3ny"]
+[ext_resource type="PackedScene" uid="uid://p3y1hruov2kw" path="res://Escenas/castillo.tscn" id="2_252di"]
 [ext_resource type="PackedScene" uid="uid://d4aj3bp7congu" path="res://Escenas/spawner.tscn" id="2_oybtx"]
 [ext_resource type="PackedScene" uid="uid://y0s4rjx5tdl7" path="res://Escenas/interfaz.tscn" id="3_6c0e8"]
 [ext_resource type="Resource" uid="uid://deq385dunke2y" path="res://Recursos/Tipos De Cartas/HechizosPrueba.tres" id="4_252di"]
@@ -10,6 +11,9 @@
 
 [node name="Spawner" parent="." unique_id=958487140 instance=ExtResource("2_oybtx")]
 position = Vector2(668, 1)
+
+[node name="Castillo" parent="." unique_id=340461851 instance=ExtResource("2_252di")]
+position = Vector2(33, 75)
 
 [node name="Cartas" type="Node2D" parent="." unique_id=1144942448]
 

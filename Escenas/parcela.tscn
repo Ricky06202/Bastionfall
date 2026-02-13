@@ -2,8 +2,24 @@
 
 [ext_resource type="Script" uid="uid://mmsybp426sg1" path="res://Escenas/parcela.gd" id="1_te2fu"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_te2fu"]
+size = Vector2(48, 48)
+
 [node name="Parcela" type="PanelContainer" unique_id=548738987]
 custom_minimum_size = Vector2(48, 48)
 offset_right = 48.0
 offset_bottom = 48.0
 script = ExtResource("1_te2fu")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=581551416]
+position = Vector2(24, 24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=225671583]
+shape = SubResource("RectangleShape2D_te2fu")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=617513072]
+position = Vector2(24, 24)
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

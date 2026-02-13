@@ -7,6 +7,8 @@ func _ready() -> void:
 	Inventario.obtenerMonedas.connect(obtenerMonedas)
 	Inventario.obtenerHechizos.connect(obtenerHechizos)
 	Inventario.obtenerEstructuras.connect(obtenerEstructuras)
+	Globals.avisoModoConstruccion.connect(avisoModoConstruccion)
+	Globals.estructuraColocada.connect(estructuraColocada)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -49,3 +51,30 @@ func obtenerEstructuras(carta):
 			var hechizoNuevo = estructuras.get(i)
 			hechizoNuevo.visible = true
 			hechizoNuevo.texture_normal = hechizoActual.sprite
+
+
+func _on_estructura_1_pressed() -> void:
+	Globals.avisoModoConstruccion.emit()
+	Globals.construccion = Inventario.estructuras.get(0)
+
+
+func _on_estructura_2_pressed() -> void:
+	Globals.avisoModoConstruccion.emit()
+	Globals.construccion = Inventario.estructuras.get(1)
+
+
+func _on_estructura_3_pressed() -> void:
+	Globals.avisoModoConstruccion.emit()
+	Globals.construccion = Inventario.estructuras.get(2)
+	
+	
+func avisoModoConstruccion():
+	Globals.modoContruccion = !Globals.modoContruccion
+	$"Control/Modo Construccion".visible = !$"Control/Modo Construccion".visible
+
+func estructuraColocada():
+	for i in Inventario.estructuras.size():
+		if Inventario.estructuras.get(i) == Globals.construccion:
+			Inventario.estructuras.remove_at(i)
+		estructuras.get(i).visible = false
+			
