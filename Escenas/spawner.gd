@@ -3,7 +3,6 @@ extends Node2D
 @onready var timer := Timer.new()
 @onready var direccion_castillo: Marker2D = $DireccionCastillo
 @onready var enemigo : PackedScene = load("res://Escenas/enemigo.tscn")
-@onready var enemigo1: Area2D = $Enemigo
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
