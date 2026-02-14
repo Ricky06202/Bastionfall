@@ -3,29 +3,79 @@
 [ext_resource type="Script" uid="uid://btt04rjfw2sqq" path="res://Escenas/unidad.gd" id="1_idnxp"]
 [ext_resource type="Script" uid="uid://cf60017ojhh2q" path="res://Componentes/Vida.gd" id="1_w64r7"]
 [ext_resource type="Script" uid="uid://d2vlltvcavjw7" path="res://Componentes/BarraVida.gd" id="2_6yxft"]
-[ext_resource type="Texture2D" uid="uid://gqgddq4m0bqw" path="res://icon.svg" id="2_pq060"]
+[ext_resource type="Texture2D" uid="uid://b2m4c27ywsshl" path="res://Assets/soldado.png" id="2_xntvj"]
+[ext_resource type="Script" uid="uid://cxagu00s7vjio" path="res://Componentes/Detector.gd" id="5_w8qgh"]
+[ext_resource type="Script" uid="uid://b0kwu6twqbbcl" path="res://Componentes/HitBox.gd" id="6_8e0yx"]
+[ext_resource type="Script" uid="uid://bpelnjyk2hhnd" path="res://Componentes/HurtBox.gd" id="7_xk4hm"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_idnxp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_idnxp"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_7gd4k"]
+radius = 78.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t5424"]
+radius = 36.013885
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eumvw"]
+
 [node name="Unidad" type="CharacterBody2D" unique_id=816876385]
+collision_layer = 2
+collision_mask = 4
 script = ExtResource("1_idnxp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1165846208]
 sprite_frames = SubResource("SpriteFrames_idnxp")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1510374430]
-texture = ExtResource("2_pq060")
+texture = ExtResource("2_xntvj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1353341777]
 shape = SubResource("CircleShape2D_idnxp")
 
+[node name="Detector" type="Area2D" parent="." unique_id=492891902]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("5_w8qgh")
+grupo_a_detectar = "enemigos"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detector" unique_id=408886616]
+shape = SubResource("CircleShape2D_7gd4k")
+debug_color = Color(0.54768026, 0.5336093, 0.5173955, 0.41960785)
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1707321746]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("6_8e0yx")
+"daño" = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1148270850]
+shape = SubResource("CircleShape2D_t5424")
+debug_color = Color(0.71907645, 0.4808851, 0, 0.41960785)
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=904536074]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("7_xk4hm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=553884423]
+shape = SubResource("CircleShape2D_eumvw")
+debug_color = Color(0.9883829, 0, 0.30779582, 0.41960785)
+
+[node name="TimerAtaque" type="Timer" parent="." unique_id=1776182166]
+
 [node name="Vida" type="Node" parent="." unique_id=1995817986]
 script = ExtResource("1_w64r7")
+vidaMax = 10
 metadata/_custom_type_script = "uid://cf60017ojhh2q"
 
 [node name="BarraVida" type="ProgressBar" parent="." unique_id=556828173]
-offset_right = 4.0
-offset_bottom = 27.0
+offset_left = -14.0
+offset_top = -24.0
+offset_right = 14.0
+offset_bottom = -16.0
+show_percentage = false
 script = ExtResource("2_6yxft")
+
+[connection signal="morir" from="Vida" to="." method="_on_vida_morir"]

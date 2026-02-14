@@ -85,21 +85,24 @@ func obtenerEstructuras(carta):
 
 
 func _on_estructura_1_pressed() -> void:
-	Globals.avisoModoConstruccion.emit(true)
-	indiceConstruccion = 0
-	Globals.construccion = Inventario.estructuras.get(0)
+	if Inventario.estructuras.size() > 0:
+		Globals.avisoModoConstruccion.emit(true)
+		indiceConstruccion = 0
+		Globals.construccion = Inventario.estructuras[0]
 
 
 func _on_estructura_2_pressed() -> void:
-	Globals.avisoModoConstruccion.emit(true)
-	indiceConstruccion = 1
-	Globals.construccion = Inventario.estructuras.get(1)
+	if Inventario.estructuras.size() > 1:
+		Globals.avisoModoConstruccion.emit(true)
+		indiceConstruccion = 1
+		Globals.construccion = Inventario.estructuras[1]
 
 
 func _on_estructura_3_pressed() -> void:
-	Globals.avisoModoConstruccion.emit(true)
-	indiceConstruccion = 2
-	Globals.construccion = Inventario.estructuras.get(2)
+	if Inventario.estructuras.size() > 2:
+		Globals.avisoModoConstruccion.emit(true)
+		indiceConstruccion = 2
+		Globals.construccion = Inventario.estructuras[2]
 	
 var indiceConstruccion := 0
 
@@ -108,6 +111,13 @@ func avisoModoConstruccion(activo):
 	$"Control/Modo Construccion".visible = activo
 
 func estructuraColocada():
-	Inventario.estructuras.remove_at(indiceConstruccion)
-	estructuras.get(indiceConstruccion).visible = false
+	if indiceConstruccion < Inventario.estructuras.size():
+		Inventario.estructuras.remove_at(indiceConstruccion)
+		# Actualizamos todos los botones del inventario para reflejar el cambio
+		for i in estructuras.size():
+			if i < Inventario.estructuras.size():
+				estructuras[i].visible = true
+				estructuras[i].texture_normal = Inventario.estructuras[i].sprite
+			else:
+				estructuras[i].visible = false
 			
