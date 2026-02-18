@@ -9,6 +9,8 @@ signal avisoModoConstruccion(activo)
 var construccion : TipoDeCarta
 signal estructuraColocada
 
+signal quemarCartas # Señal para destruir las cartas que no se eligieron
+
 # El punto donde las unidades se reunirán (frente de batalla)
 var punto_reunion : Marker2D
 

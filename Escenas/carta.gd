@@ -17,6 +17,7 @@ var seleccionada := false
 @onready var tipo: Label = $Tipo
 @onready var sprite_2d: TextureRect = $Control/Sprite2D
 @onready var carta: MeshInstance2D = $Carta
+@onready var animatedSprite: AnimatedSprite2D = $AnimatedSprite2D
 
 
 # Called when the node enters the scene tree for the first time.
@@ -25,6 +26,24 @@ func _ready() -> void:
 	actualizar_visuales()
 	if not Engine.is_editor_hint():
 		Globals.cartaSeleccionada.connect(onCartaSeleccionada)
+		Globals.quemarCartas.connect(quemar)
+
+func quemar():
+	if activada: return # Si fui la elegida, no me quemo
+	
+	activada = true # Bloqueamos interacción
+	deseleccionar()
+	
+	sprite_2d.visible = false
+	borde.visible = false
+	tipo.visible = false
+	carta.visible = false
+	
+	animatedSprite.visible = true
+	animatedSprite.play("default")
+	
+	await animatedSprite.animation_finished
+	queue_free()
 
 func actualizar_visuales():
 	# Verificamos que los nodos existan (muy importante en modo @tool)
@@ -68,11 +87,14 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		#else:
 			#global_position = posicionInicial
 	if event.is_action_pressed("click"):
+		if activada: return # Si ya se está quemando, ignoramos clics
+		
 		if seleccionada:
 			activar()
 		Globals.cartaSeleccionada.emit(self)
 
 func seleccionar():
+	if activada: return
 	seleccionada = true
 	borde.visible = true
 	
@@ -85,7 +107,15 @@ func onCartaSeleccionada(cartaTocada):
 		deseleccionar()
 	cartaTocada.seleccionar()
 	
+var activada := false
+
 func activar():
+	activada = true
+	
+	# Emitimos la señal para quemar a las OTRAS cartas
+	Globals.quemarCartas.emit()
+	
+	# La carta elegida simplemente desaparece o hace su efecto, pero NO se quema visualmente
 	match tipoDeCarta.tipo:
 		0: Inventario.obtenerMonedas.emit(tipoDeCarta)
 		1: Inventario.obtenerHechizos.emit(tipoDeCarta)

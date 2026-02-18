@@ -1,11 +1,9 @@
 [gd_scene format=3 uid="uid://tvrlbym8e3yb"]
 
-[ext_resource type="PackedScene" uid="uid://ci1gwg6fymju2" path="res://Escenas/Carta.tscn" id="1_jy3ny"]
 [ext_resource type="PackedScene" uid="uid://p3y1hruov2kw" path="res://Escenas/castillo.tscn" id="2_252di"]
 [ext_resource type="PackedScene" uid="uid://d4aj3bp7congu" path="res://Escenas/spawner.tscn" id="2_oybtx"]
 [ext_resource type="PackedScene" uid="uid://y0s4rjx5tdl7" path="res://Escenas/interfaz.tscn" id="3_6c0e8"]
-[ext_resource type="Resource" uid="uid://deq385dunke2y" path="res://Recursos/Tipos De Cartas/HechizosPrueba.tres" id="4_252di"]
-[ext_resource type="Resource" uid="uid://ckmjyntx7d7pq" path="res://Recursos/Tipos De Cartas/EstructurasPrueba.tres" id="5_2rhd1"]
+[ext_resource type="PackedScene" uid="uid://cx6ufb05c76w" path="res://Escenas/cartas.tscn" id="3_p5ire"]
 
 [node name="Nivel" type="Node2D" unique_id=1169040680]
 
@@ -15,18 +13,6 @@ position = Vector2(668, 1)
 [node name="Castillo" parent="." unique_id=340461851 instance=ExtResource("2_252di")]
 position = Vector2(33, 75)
 
-[node name="Cartas" type="Node2D" parent="." unique_id=1144942448]
-
-[node name="Carta" parent="Cartas" unique_id=13843428 instance=ExtResource("1_jy3ny")]
-position = Vector2(190, 295)
-tipoDeCarta = ExtResource("5_2rhd1")
-
-[node name="Carta2" parent="Cartas" unique_id=639965621 instance=ExtResource("1_jy3ny")]
-position = Vector2(301, 295)
-tipoDeCarta = ExtResource("4_252di")
-
-[node name="Carta3" parent="Cartas" unique_id=758121112 instance=ExtResource("1_jy3ny")]
-position = Vector2(411, 295)
-tipoDeCarta = ExtResource("5_2rhd1")
+[node name="Cartas" parent="." unique_id=921776989 instance=ExtResource("3_p5ire")]
 
 [node name="Interfaz" parent="." unique_id=1362017565 instance=ExtResource("3_6c0e8")]
