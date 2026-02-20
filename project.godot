@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Bastionfall"
-run/main_scene="uid://tvrlbym8e3yb"
+run/main_scene="uid://du5fsbbv4vhsh"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
